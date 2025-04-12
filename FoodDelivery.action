@@ -1,0 +1,12 @@
+# Goal definition
+string[] table_ids
+bool require_kitchen_confirmation
+bool require_table_confirmation
+bool return_to_kitchen_after_table
+---
+# Result definition
+bool success
+string message
+---
+# Feedback definition
+string current_state

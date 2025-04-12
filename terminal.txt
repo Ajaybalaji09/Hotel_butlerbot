@@ -1,0 +1,24 @@
+# launch the gazebo environment
+ros2 launch turtlebot3_gazebo turtlebot3_dqn_stage4.launch.py 
+
+# rviz
+ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=$HOME/map.yaml
+
+#service 
+ros2 run turtlebot3_example hotel_script 
+
+
+
+#service call
+ros2 action send_goal /food_delivery turtlebot3_msgs/action/FoodDelivery "{table_ids: ['table1', 'table2'], require_kitchen_confirmation: true, require_table_confirmation: true, return_to_kitchen_after_table: true}"
+
+
+#confirmation triggered service
+ros2 run turtlebot3_example confirm_script 
+
+
+#service call for confirmation service
+ros2 service call /confirm_order std_srvs/srv/Trigger "{}"
+
+
+
